@@ -212,16 +212,16 @@
   
   
 <div class="gitalk" id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.6.2/gitalk.min.css">
+<script src="https://cdn.bootcss.com/gitalk/1.6.2/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
 <script type="text/javascript">
   var gitalk = new Gitalk({
     clientID: '2144b8ba49571a940c51',
     clientSecret: '942f1619cc0a763cc4c1ed7ab9e1c0b1eebddb91',
-    repo: '',
-    owner: '',
-    admin: [''],
+    repo: 'MyBlog',
+    owner: 'ymTonny',
+    admin: ['ymTonny'],
     // id: location.pathname,      // Ensure uniqueness and length less than 50
     id: md5(location.pathname),
     distractionFreeMode: false,  // Facebook-like distraction free mode
