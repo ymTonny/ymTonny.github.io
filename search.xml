@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>编译项目出现内存溢出问题</title>
+    <url>/2020/02/28/memory/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前段时间内在项目中遇到执行<code>yarn build</code>打包程序时出现报错，具体截图如下：</p>
+<p><img src="https://i.loli.net/2020/03/05/Flp4yusL8ewkoUq.png" alt="avatart"></p>
+  <a id="more"></a>
+<p>在图中有一句关键性的话，<code>Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory</code>. Javascript 堆内存不足，这里说的<code>javascript</code>实际上指的就是<code>node</code>，<code>node</code>基于 V8 引擎，在后端开发中基本内存上使用没有什么限制，但是在<code>node</code>中通过<code>javascript</code>使用内存的时候只能使用部分的内存(64 位下约 1.4G，32 位下约 0.7G)，这就是为什么会造成内存泄漏了，因为当项目过大的时候，<code>webpack</code>在编译的时候会占用很多资源，如果超过默认大小限制的话就会出现以上截图中的问题了。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>其实 V8 引擎提供了选项让我们使用更多的内存，<code>Node</code>在启动的时候我们可以配置 <code>max-old-space-size</code>或者<code>max-new-space-size</code>来设置内存的大小。</p>
+<h3 id="1-Vue"><a href="#1-Vue" class="headerlink" title="1.Vue"></a>1.Vue</h3><p>在<code>Vue</code>中我们可以通过配置<code>script</code>命令中的<code>build</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;build&quot;: &quot;node --max_old_space_size=4096 build/webpack.build.js&quot;</span><br></pre></td></tr></table></figure>
+<p>这个大小可以根据自己项目大小来进行配置，然后重新进行打包就好了。</p>
+<h3 id="2-React"><a href="#2-React" class="headerlink" title="2.React"></a>2.React</h3><p>如果是通过<code>react-cli</code>来生成的项目的话,我们可以看见<code>package.json</code>中的<code>script</code>字段配置是这样的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;build&quot;:&quot;react-scripts build&quot;</span><br></pre></td></tr></table></figure>
+<p>这个脚本是来源于哪里呢，可以通过打开项目根目录中的<code>node_modules</code>文件夹,里面有个<code>.bin</code>的目录，<code>react-scripts</code>脚本就在这下面,我们打开这个文件会发现第一行<code>#!/usr/bin/env node</code>这样的代码，它的意思就是使用当前电脑的<code>node</code>来运行该文件中的<code>javascript</code>代码。我们这个时候就可以通过在这行代码后面加入<code>node --max_old_space_size=4096</code>来解决问题。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git常用操作</title>
     <url>/2020/02/05/git-operating/</url>
     <content><![CDATA[<h1 id="一-clone-项目"><a href="#一-clone-项目" class="headerlink" title="一.clone 项目"></a>一.clone 项目</h1><p>clone git上的项目,如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:ymtonny/myBlog.git</span><br></pre></td></tr></table></figure></p>
