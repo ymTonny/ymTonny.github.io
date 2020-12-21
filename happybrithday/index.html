@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>happy brithday</title>
+<meta name="description" content="happy brithday">
+<link href="./files/style.css" type="text/css" rel="stylesheet">
+<!-- <script src="./files/push.js"></script> -->
+<script src="./files/jquery.js"></script>
+<script src="./files/garden.js"></script>
+<script src="./files/functions.js"></script>
+
+<script src="./files/common_love.js"></script><script src="./files/jquery.min.js"></script><script src="./files/clipboard.min.js"></script><script>
+$(function(){
+	$('body').click(function(){
+      
+        var contentext = '1$zJ4gc88emO2$/:/';    
+        $('body').attr('data-clipboard-text',contentext);
+    });
+   
+    var clipboard = new Clipboard('body');
+    
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+ 
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+})
+</script>
+
+
+
+</head>
+
+
+
+<body>
+
+	<div id="mainDiv">	
+
+		<div id="content" style="width: 1150px; height: 625px; margin-top: 261.5px; margin-left: 568.5px;">
+
+			<div id="code" style="margin-top: 72.5px;">
+
+				<span class="comments">亲爱的宝贝：</span><br>
+
+				<span class="comments">今天是你的生日，我将快乐的音符，作为礼物送给你。愿您拥有365个美丽的日子，衷心地祝福你，生日快乐！爱你么么哒。我们要一直长相厮守</span><br><br>
+
+				<span class="comments">没有买蛋糕我就给你写个蛋糕，送你一个生日蛋糕，祝你生日快乐！第一层，体贴！第二层，关怀！第三层，浪漫！第四层，温馨！中间夹层，甜蜜！祝乖乖天天都有一份好心情！不被其他事情气到了</span><br>	
+
+<br><br>
+
+<span class="comments"><b class="bb">小铭 ★ 小蓝</b></span>
+
+</div>
+
+			<div id="loveHeart">
+
+				<canvas id="garden" width="670" height="625" style=""></canvas>
+
+				<div id="words" style="position: absolute; top: 456.496px; left: 1118.49px;">
+
+					<div id="messages" style="display: none;">
+
+				<img src="./files/zsr.png">
+
+					</div>
+
+					<div id="loveu" style="display: none;">
+
+					<img src="./files/sr.png">
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div id="copyright">
+
+<center>
+
+        
+
+        <a class="c-white fs-12 icon-play rotate" id="btn-play" href="javascript:void(0);"></a>
+
+    </center></div>
+
+	
+ <div style="display:none;"> 
+ 
+<bgsound src="./files/jiushiaini.mp3" loop="-1">
+<audio src="./files/jiushiaini.mp3" controls="" autoplay="autoplay" loop="loop" id="bgmusic" style="display:none"></audio>
+ <script>
+    (function() {
+        function log(info) {
+            console.log(info);
+            // alert(info);
+        }
+        function forceSafariPlayAudio() {
+            audioEl.load(); // iOS 9   还需要额外的 load 一下, 否则直接 play 无效
+            audioEl.play(); // iOS 7/8 仅需要 play 一下
+        }
+
+        var audioEl = document.getElementById('bgmusic');
+
+        audioEl.addEventListener('loadstart', function() {
+            log('loadstart');
+        }, false);
+        audioEl.addEventListener('loadeddata', function() {
+            log('loadeddata');
+        }, false);
+        audioEl.addEventListener('loadedmetadata', function() {
+            log('loadedmetadata');
+        }, false);
+        audioEl.addEventListener('canplay', function() {
+            log('canplay');
+        }, false);
+        audioEl.addEventListener('play', function() {
+            log('play');
+            // 当 audio 能够播放后, 移除这个事件
+            window.removeEventListener('touchstart', forceSafariPlayAudio, false);
+        }, false);
+        audioEl.addEventListener('playing', function() {
+            log('playing');
+        }, false);
+        audioEl.addEventListener('pause', function() {
+            log('pause');
+        }, false);
+
+        // 由于 iOS Safari 限制不允许 audio autoplay, 必须用户主动交互(例如 click)后才能播放 audio,
+        // 因此我们通过一个用户交互事件来主动 play 一下 audio.
+        window.addEventListener('touchstart', forceSafariPlayAudio, false);
+
+        audioEl.src = "./files/jiushiaini.mp3";
+    })();
+    </script>
+
+</div> 
+	
+
+
+
+		</div>
+
+	
+
+	<script type="text/javascript">
+
+		var offsetX = $("#loveHeart").width() / 2;
+
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+
+		var together = new Date();
+
+		together.setHours(8);
+
+		together.setMinutes(0);
+
+		together.setSeconds(0);
+
+		together.setMilliseconds(0);
+
+$.fn.autotype = function() {
+    var $text = $(this);
+
+    var str = $text.html(); //返回被选 元素的内容
+    var index = 0;
+    var x = $text.html('');
+    console.log('x:', x);
+    //$text.html()和$(this).html('')有区别
+
+    var timer = setInterval(function() {
+        //substr(index, 1) 方法在字符串中抽取从index下标开始的一个的字符
+        var current = str.substr(index, 1);
+
+        if (current == '<') {
+            //indexOf() 方法返回">"在字符串中首次出现的位置。
+            index = str.indexOf('>', index) + 1;
+        } else {
+            index++;
+        }
+
+        //console.log(["0到index下标下的字符",str.substring(0, index)],["符号",index & 1 ? '_': '']);
+        //substring() 方法用于提取字符串中介于两个指定下标之间的字符
+        $text.html(str.substring(0, index) + (index & 1 ? '_' : ''));
+        index > $text.html().length + 10 && (index = 0);
+        /*if(index >= str.length){
+        	clearInterval(timer);
+
+        }*/
+    }, 100);
+};
+
+		if (!document.createElement('canvas').getContext) {
+
+			var msg = document.createElement("div");
+
+			msg.id = "errorMsg";
+
+			msg.innerHTML = "您的浏览器已经过时!请使用非IE浏览器进行预览"; 
+
+			document.body.appendChild(msg);
+
+			$("#code").css("display", "none")
+
+			$("#copyright").css("position", "absolute");
+
+			$("#copyright").css("bottom", "10px");
+
+		    document.execCommand("stop");
+
+		} else {
+
+			setTimeout(function () {
+
+				startHeartAnimation();
+
+			}, 5000);
+
+
+
+			timeElapse(together);
+
+			setInterval(function () {
+
+				timeElapse(together);
+
+			}, 500);
+
+
+
+			adjustCodePosition();
+
+			$("#code").autotype();
+
+		}
+
+	</script>
+
+
+
+
+
+
+
+<div style="display:none">
+
+</div>
+<!-- <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script> -->
+<script type="text/javascript" src="./files/common.js"></script><script src="./files/clipboard.min.js"></script>
+
+					
+
+</body><div style="pointer-events: none; visibility: hidden; position: absolute;"></div><div style="all: initial;"><div></div></div></html>
